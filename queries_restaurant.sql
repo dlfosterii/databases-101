@@ -52,16 +52,29 @@ AND stars = 5;
 
 -- Aggregation and Sorting Queries PT2
 -- List restaurants by the closest distance.
+SELECT *
+FROM restaurant
+ORDER BY distance;
 
 
 -- List the top 2 restaurants by distance.
-
+SELECT restaurant_name
+FROM restaurant
+ORDER BY distance DESC
+LIMIT 2;
 
 -- List the top 2 restaurants by stars.
-
+SELECT restaurant_name
+FROM restaurant
+ORDER BY stars DESC
+LIMIT 2;
 
 -- List the top 2 restaurants by stars where the distance is less than 2 miles.
-
+SELECT restaurant_name
+FROM restaurant
+WHERE distance < 2
+ORDER BY stars DESC
+LIMIT 2;
 
 -- Count the number of restaurants in the db.
 
