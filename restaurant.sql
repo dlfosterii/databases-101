@@ -67,8 +67,8 @@ INSERT INTO restaurant VALUES (
 INSERT INTO restaurant VALUES (
     DEFAULT
     ,'Major Q BBQ & Catering'
-    ,4.7
     ,5.7
+    ,4.7
     ,'BBQ'
     ,'Brisket'
     ,TRUE
@@ -78,8 +78,8 @@ INSERT INTO restaurant VALUES (
 INSERT INTO restaurant VALUES (
     DEFAULT
     ,'Waffle House'
-    ,4.2
-    ,5.7
+    ,5.2
+    ,4.7
     ,'breakfast'
     ,'Cheese Eggs Plate'
     ,TRUE
