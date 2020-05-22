@@ -87,8 +87,10 @@ GROUP BY category;
 
 -- Get the average stars per restaurant by category.
 SELECT category,AVG(stars)
-FROM restaurant;
-
+FROM restaurant
+GROUP BY category;
 
 -- Get the max stars of a restaurant by category.
-
+SELECT category,MAX(stars)
+FROM restaurant
+GROUP BY category;
