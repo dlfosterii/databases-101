@@ -35,22 +35,36 @@ WHERE r.rest_id = rv.rest_id
 GROUP BY name;
 
 -- Get the number of reviews written for each restaurant. The result should have the restaurant name and its review count.
-SELECT r.name as Restaurant, COUNT(*)
+SELECT r.name, COUNT(*)
 FROM restaurant r, review rv
 WHERE r.rest_id = rv.rest_id
-GROUP BY name;
+GROUP BY name
+name is 'restaurant name' count is 'Review Count';
+
 
 -- List all the reviews along with the restaurant, and the reviewer's name. The result should have the restaurant name, the review text, and the reviewer name. Hint: you will need to do a three-way join - i.e. joining all three tables together.
-
+SELECT r.name, rv.review, rvr.name
+FROM restaurant r, review rv, reviewer rvr
+WHERE r.rest_id = rv.rest_id
+AND rv.rev_id = rvr.revr_id;
 
 -- Get the average stars given by each reviewer. (reviewer name, average star rating)
-
+SELECT rvr.name, AVG(rv.stars)
+FROM review rv, reviewer rvr
+WHERE rv.revr_id = rvr.revr_id
+GROUP BY rvr.name;
 
 -- Get the lowest star rating given by each reviewer. (reviewer name, lowest star rating)
-
+SELECT rvr.name, MIN(rv.stars)
+FROM review rv, reviewer rvr
+WHERE rv.revr_id = rvr.revr_id
+GROUP BY rvr.revr_id;
 
 -- Get the number of restaurants in each category. (category name, restaurant count)
-
+SELECT rvr.name, MIN(rv.stars)
+FROM review rv, reviewer rvr
+WHERE rv.revr_id = rvr.revr_id
+GROUP BY rvr.revr_id;
 
 -- Get number of 5 star reviews given by restaurant. (restaurant name, 5-star count)
 
