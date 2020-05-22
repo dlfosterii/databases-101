@@ -35,7 +35,10 @@ WHERE r.rest_id = rv.rest_id
 GROUP BY name;
 
 -- Get the number of reviews written for each restaurant. The result should have the restaurant name and its review count.
-
+SELECT r.name as Restaurant, COUNT(*)
+FROM restaurant r, review rv
+WHERE r.rest_id = rv.rest_id
+GROUP BY name;
 
 -- List all the reviews along with the restaurant, and the reviewer's name. The result should have the restaurant name, the review text, and the reviewer name. Hint: you will need to do a three-way join - i.e. joining all three tables together.
 
