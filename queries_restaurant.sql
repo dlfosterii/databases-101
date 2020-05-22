@@ -77,12 +77,17 @@ ORDER BY stars DESC
 LIMIT 2;
 
 -- Count the number of restaurants in the db.
-
+SELECT COUNT(*)
+FROM restaurant;
 
 -- Count the number of restaurants by category.
-
+SELECT category, COUNT(*)
+FROM restaurant
+GROUP BY category;
 
 -- Get the average stars per restaurant by category.
+SELECT category,AVG(stars)
+FROM restaurant;
 
 
 -- Get the max stars of a restaurant by category.
