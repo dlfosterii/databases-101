@@ -52,7 +52,7 @@ AND rv.rev_id = rvr.revr_id;
 SELECT rvr.name, AVG(rv.stars)
 FROM review rv, reviewer rvr
 WHERE rv.revr_id = rvr.revr_id
-GROUP BY rvr.name;
+GROUP BY rvr.revr_id;
 
 -- Get the lowest star rating given by each reviewer. (reviewer name, lowest star rating)
 SELECT rvr.name, MIN(rv.stars)
@@ -61,13 +61,20 @@ WHERE rv.revr_id = rvr.revr_id
 GROUP BY rvr.revr_id;
 
 -- Get the number of restaurants in each category. (category name, restaurant count)
-SELECT rvr.name, MIN(rv.stars)
-FROM review rv, reviewer rvr
-WHERE rv.revr_id = rvr.revr_id
-GROUP BY rvr.revr_id;
+SELECT category, COUNT(*)
+FROM restaurant r
+GROUP BY category;
 
 -- Get number of 5 star reviews given by restaurant. (restaurant name, 5-star count)
+SELECT r.name, COUNT(rv.stars) AS total_5_stars
+FROM restaurant r, review rv
+WHERE r.rest_id = rv.rest_id
+AND rv.stars = 5
+GROUP BY r.name;
 
 
 -- Get the average star rating for a food category. (category name, average star rating)
-
+SELECT r.category, AVG(rv.stars)
+FROM restaurant r, review rv
+WHERE rv.revr_id = r.rest_id
+GROUP BY r.category;
